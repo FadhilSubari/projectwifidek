@@ -51,4 +51,39 @@ class Kelurahan extends Ci_Controller
       $this->load->view('admin/editkelurahan');
     }
   }
+  public function dataUser()
+  {
+    $data['item'] = $this->db->query('SELECT * FROM user, kelurahan, kecamatan where user.id_kelurahan = kelurahan.id_kelurahan AND user.id_kecamatan = kecamatan.id_kecamatan')->result();
+    $this->load->view('admin/dataUser',$data);
+  }
+  public function dataAdmin()
+  {
+    $data['item'] = $this->db->query('SELECT * FROM admin')->result();
+    $this->load->view('admin/dataAdmin',$data);
+  }
+  public function tambahAdmin()
+  {
+    $this->load->view('admin/tambahAdmin');
+  }
+  public function prosesTambahAdmin()
+  {
+    $this->form_validation->set_rules('nama_admin', 'nama_admin', 'required');
+    $this->form_validation->set_rules('email', 'Email', 'required');
+    $this->form_validation->set_rules('password', 'password', 'required');
+    $this->form_validation->set_rules('no_telp', 'no_telp', 'required');
+    if ($this->form_validation->run() != false)
+    {
+      $data = array(
+        'nama_admin' => $this->input->post('nama_admin'),
+        'email' => $this->input->post('email'),
+        'password' => md5($this->input->post('password')),
+        'no_telp' => $this->input->post('no_telp'),
+        'roles' => 'normal'
+      );
+      $this->m_default->insert_data($data, 'admin');
+      echo "<script>alert('Admin berhasil ditambah')</script>";
+      echo '<meta http-equiv="refresh" content="0;url=' . base_url('admin/data-admin') . '">';
+    }
+
+  }
 }

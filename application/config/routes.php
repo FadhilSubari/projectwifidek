@@ -64,7 +64,11 @@ $route['user/profile'] = 'welcome/profile';
 $route['user/manual-book'] = 'welcome/manualBook';
 $route['user/lupa-password'] = 'welcome/lupaPass';
 $route['user/reset-password'] = 'welcome/resetPass';
+$route['user/data-diri'] = 'u_pengajuan/dataDiri';
 $route['user/lihat-pengajuan/(:any)'] = 'u_pengajuan/lihat/$1';
+$route['user/update-diri'] = 'u_pengajuan/updateDataDiri';
+$route['user/ganti-password'] = 'u_pengajuan/gantiPassword';
+$route['user/proses-ganti-password'] = 'u_pengajuan/prosesGantiPassword';
 
 //
 
@@ -83,6 +87,10 @@ $route['admin/tambah-kelurahan'] = 'kelurahan/addKelurahan';
 $route['admin/proses-tambah-kelurahan'] = 'kelurahan/prosesAddKelurahan';
 $route['admin/edit-kelurahan/(:any)'] = 'kelurahan/editKelurahan/$1';
 $route['admin/proses-edit-kelurahan'] = 'kelurahan/prosesEditKelurahan';
+$route['admin/data-user'] = 'kelurahan/dataUser';
+$route['admin/data-admin'] = 'kelurahan/dataAdmin';
+$route['admin/tambah-admin'] = 'kelurahan/tambahAdmin';
+$route['admin/proses-tambah-admin'] = 'kelurahan/prosesTambahAdmin';
 $route['admin/data-tempat'] = 'tempat';
 $route['admin/tambah-tempat'] = 'tempat/addTempat';
 $route['admin/proses-tambah-tempat'] = 'tempat/prosesAddTempat';

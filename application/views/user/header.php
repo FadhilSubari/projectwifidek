@@ -42,35 +42,42 @@
         <li class="nav-item font-weight-bold">
           <a class="nav-link" href="<?= base_url() ?>">Home</a>
         </li>
-        <li class="nav-item font-weight-bold">
-          <?php if (empty($this->session->userdata('id_user'))) { ?>
-            <a class="nav-link" href="<?= base_url('user/login') ?>">Login</a>
-          <?php } else { ?>
-            <a class="nav-link" href="<?= base_url('user/logout') ?>">Logout</a>
-          <?php } ?>
-        </li>
+
         <li class="nav-item dropdown font-weight-bold">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Data Pengajuan
           </a>
           <div class="dropdown-menu animated--grow-in" aria-labelledby="navbarDropdownMenuLink">
             <?php if (empty($this->session->userdata('id_user'))) { ?>
-                <a class="dropdown-item font-weight-bold" href="<?= base_url('user/login') ?>" onclick="sebelum_login()">Ajukan Wifi Publik</a>
-                <a class="dropdown-item font-weight-bold" href="<?= base_url('user/login') ?>" onclick="sebelum_login()">Data Pengajuan</a>
-              <?php } else { ?>
+              <a class="dropdown-item font-weight-bold" href="<?= base_url('user/login') ?>" onclick="sebelum_login()">Ajukan Wifi Publik</a>
+              <a class="dropdown-item font-weight-bold" href="<?= base_url('user/login') ?>" onclick="sebelum_login()">Data Pengajuan</a>
+            <?php } else { ?>
               <a class="dropdown-item font-weight-bold" href="<?= base_url('user/daftar-wifi-publik') ?>">Ajukan Wifi Publik</a>
-                <a class="dropdown-item font-weight-bold" href="<?= base_url('user/data-pengajuan') ?>">Data Pengajuan</a> 
+              <a class="dropdown-item font-weight-bold" href="<?= base_url('user/data-pengajuan') ?>">Data Pengajuan</a> 
 
-              <?php } ?>
-              <!-- <a class="dropdown-item font-weight-bold" href="#">Something else here</a> -->
-            </div>
-          </li>
+            <?php } ?>
+            <!-- <a class="dropdown-item font-weight-bold" href="#">Something else here</a> -->
+          </div>
+        </li>
 
+        <li class="nav-item font-weight-bold">
+          <a class="nav-link" href="<?= base_url('user/profile') ?>">Profile</a>
+        </li>        
+        <li class="nav-item font-weight-bold">
+          <a class="nav-link" href="<?= base_url('user/manual-book') ?>">Manual Book</a>
+        </li>
+        <?php if (!empty($this->session->userdata('id_user'))) { ?>
           <li class="nav-item font-weight-bold">
-            <a class="nav-link" href="<?= base_url('user/profile') ?>">Profile</a>
-          </li>        <li class="nav-item font-weight-bold">
-            <a class="nav-link" href="<?= base_url('user/manual-book') ?>">Manual Book</a>
+            <a class="nav-link" href="<?= base_url('user/data-diri') ?>">Data Diri</a>
           </li>
-        </ul>
-      </div>
-    </nav>
+        <?php } ?>
+        <li class="nav-item font-weight-bold">
+          <?php if (empty($this->session->userdata('id_user'))) { ?>
+            <a class="nav-link" href="<?= base_url('user/login') ?>">Login</a>
+          <?php } else { ?>
+            <a class="nav-link text-danger" href="<?= base_url('user/logout') ?>">Logout</a>
+          <?php } ?>
+        </li>
+      </ul>
+    </div>
+  </nav>
