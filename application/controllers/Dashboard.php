@@ -11,7 +11,9 @@ class Dashboard extends Ci_Controller
   }
   public function index()
   {
-    $this->load->view('admin/index');
+        $data['kecamatan'] = $this->db->query('SELECT * FROM kategori_tempat')->result();
+        $dataa = $this->db->query('SELECT * FROM kategori_tempat')->result();
+    $this->load->view('admin/index',$data);
   }
   public function logout()
   {

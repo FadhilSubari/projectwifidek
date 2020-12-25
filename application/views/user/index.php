@@ -1,6 +1,6 @@
 <?php $this->load->view('user/header'); ?>
 <!-- banner  -->
-<div class="row m-0 jumbotron jumbotron-fluid position-relative bg-dsw1 justify-content-between"
+<div class="row m-0 jumbotron jumbotron-fluid position-relative justify-content-between"
 style="background-image: url(<?= base_url('assets/svg/banner4.png'); ?>); background-size: cover; background-position: center;" 
 >
 
@@ -19,6 +19,7 @@ style="background-image: url(<?= base_url('assets/svg/banner4.png'); ?>); backgr
 </div>
 
 <div class="row justify-content-center m-0 mt-5 mb-5" data-aos="fade-up">
+  <div class="col-md-12 text-center"><h2>Tahapan Pemasangan Wifi Depok Bersahabat</h2></div>
   <div class="m-3 shadow cs-radius card-cs px-5 py-4">
     <img src="<?= base_url('assets/svg/2.svg') ?>" class="card-img-top h-50" alt="...">
     <H4 class="font-weight-bold">Tahap 1</H4>

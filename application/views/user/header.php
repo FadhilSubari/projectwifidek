@@ -45,7 +45,7 @@
 
         <li class="nav-item dropdown font-weight-bold">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Data Pengajuan
+            Pengajuan
           </a>
           <div class="dropdown-menu animated--grow-in" aria-labelledby="navbarDropdownMenuLink">
             <?php if (empty($this->session->userdata('id_user'))) { ?>

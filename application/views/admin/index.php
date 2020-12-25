@@ -191,11 +191,26 @@
                   <h6 class="m-0 font-weight-bold text-primary">Total Pemasangan</h6>
                 </div>
                 <div class="card-body">
-                  <h4 class="small font-weight-bold">Taman <span class="float-right">20%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Rumah Ibadah <span class="float-right">40%</span></h4>
+
+                  <?php 
+                  $totalPengajuan = $this->db->query("SELECT * FROM pengajuan")->num_rows();
+                  foreach ($kecamatan as $value) {
+                    $id = $value->id_tempat;
+                    $total = $this->db->query("SELECT * FROM pengajuan where id_kecamatan = $id order by id_kecamatan")->num_rows();
+                    $totalbagi = ($total / $totalPengajuan) * 100; 
+                    $nama_kecamatan = $value->nama_tempat;
+                    $dataa = array(
+                      'Kecamatan' => $value->nama_tempat,
+                      'Total' => $totalbagi 
+                    );  
+                    ?>
+
+                    <h4 class="small font-weight-bold"><?= $dataa['Kecamatan'] ?> <span class="float-right"><?= $dataa['Total'] ?>%</span></h4>
+                    <div class="progress mb-4">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: <?= $dataa['Total'] ?>%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  <?php } ?>
+<!--                   <h4 class="small font-weight-bold">Rumah Ibadah <span class="float-right">40%</span></h4>
                   <div class="progress mb-4">
                     <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
@@ -206,7 +221,7 @@
                   <h4 class="small font-weight-bold">Posyandu <span class="float-right">80%</span></h4>
                   <div class="progress mb-4">
                     <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
 

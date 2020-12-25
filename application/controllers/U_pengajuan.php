@@ -105,9 +105,9 @@ class U_pengajuan extends CI_Controller
   }
   public function dataPengajuan()
   {
-    $item = ['id_user' => $this->session->id_user];
+    $item = ['id_user' => $this->session->userdata('id_user')];
     $data['pengajuan'] = $this->m_default->ambilData($item, 'pengajuan')->result();
-
+    print_r($item);
     $this->load->view('user/dataPengajuan', $data);
   }
   public function lihat($id)
@@ -116,6 +116,13 @@ class U_pengajuan extends CI_Controller
     $data['pengajuan'] = $this->m_default->pengajuan($id)->row();
     $data['status'] = $this->m_default->ambilData($id, 'status_pengajuan')->row();
     $this->load->view('user/lihatPengajuan', $data);
+  }  
+  public function cetak($id)
+  {
+    $id = ['id_pengajuan' => $id];
+    $data['pengajuan'] = $this->m_default->pengajuan($id)->row();
+    $data['status'] = $this->m_default->ambilData($id, 'status_pengajuan')->row();
+    $this->load->view('user/cetak', $data);
   }
 
   public function dataDiri()

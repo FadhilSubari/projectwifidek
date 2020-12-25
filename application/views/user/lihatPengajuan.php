@@ -9,6 +9,7 @@
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Pengajuan wifi dengan id "<?= $pengajuan->id_pengajuan ?>"</h6>
               Tanggal Pengajuan : <?= $pengajuan->tanggal ?>
+              <a class="btn btn-primary btn-block" target="_blank" href="<?= base_url('pengajuan/cetak/' . $pengajuan->id_pengajuan) ?>">Cetak</a>
             </div>
             <div class="card-body">
               <form action="<?= base_url('admin/proses-tambah-kecamatan') ?>" method="post">
@@ -43,7 +44,7 @@
                     </div>
                     <div class="form-group">
                       <label>Alamat</label>
-                      <textarea name="" id="" class="form-control">
+                      <textarea name="alamat" readonly="" class="form-control">
                         <?= $pengajuan->alamat ?>
                       </textarea>
                       <?= form_error('kecamatan') ?>

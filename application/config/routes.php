@@ -66,6 +66,7 @@ $route['user/lupa-password'] = 'welcome/lupaPass';
 $route['user/reset-password'] = 'welcome/resetPass';
 $route['user/data-diri'] = 'u_pengajuan/dataDiri';
 $route['user/lihat-pengajuan/(:any)'] = 'u_pengajuan/lihat/$1';
+$route['pengajuan/cetak/(:any)'] = 'u_pengajuan/cetak/$1';
 $route['user/update-diri'] = 'u_pengajuan/updateDataDiri';
 $route['user/ganti-password'] = 'u_pengajuan/gantiPassword';
 $route['user/proses-ganti-password'] = 'u_pengajuan/prosesGantiPassword';
@@ -98,6 +99,7 @@ $route['admin/edit-tempat/(:any)'] = 'tempat/editTempat/$1';
 $route['admin/proses-edit-tempat'] = 'tempat/prosesEditTempat';
 $route['admin/data-pengajuan'] = 'pengajuan';
 $route['admin/lihat-pengajuan/(:any)'] = 'pengajuan/lihat/$1';
+$route['admin/proses-update-pengajuan/(:any)'] = 'pengajuan/updatePengajuan/$1';
 $route['admin/status-pengajuan'] = 'pengajuan/submitStatus';
 //
 $route['404_override'] = '';

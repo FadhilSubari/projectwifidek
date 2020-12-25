@@ -65,6 +65,7 @@
 </div>
 
 <div class="row justify-content-center m-0 mt-5 mb-5" data-aos="fade-up">
+  <div class="col-md-12 text-center"><h2>Cara Penggunaan Wifi</h2></div>
   <div class="m-3 shadow cs-radius col-md-4 px-5 py-4">
     <img src="<?= base_url('assets/svg/book1.jpg') ?>" class="card-img-top" alt="...">
     <p class="text-center">

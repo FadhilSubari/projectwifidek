@@ -18,10 +18,29 @@ class Pengajuan extends CI_Controller
   }
   public function lihat($id)
   {
+    $data['kelurahan'] = $this->m_default->get_data('kelurahan')->result();
+    $data['kecamatan'] = $this->m_default->get_data('kecamatan')->result();
     $id = ['id_pengajuan' => $id];
     $data['pengajuan'] = $this->m_default->pengajuan($id)->row();
     $data['status'] = $this->m_default->ambilData($id, 'status_pengajuan')->row();
     $this->load->view('admin/lihatPengajuan', $data);
+  }
+  public function updatePengajuan($id)
+  {
+    $id_pengajuan = array('id_pengajuan' => $id);
+    $data = array(
+      'nama_pengaju' => $this->input->post('nama_pengaju'),
+      'nama_pic' => $this->input->post('nama_pic'),
+      'alamat' => $this->input->post('alamat'),
+      'no_telp' => $this->input->post('no_telp'),
+      'no_telp_pic' => $this->input->post('no_telp_pic'),
+      'email' => $this->input->post('email'),
+      'id_kecamatan' => $this->input->post('id_kecamatan'),
+      'id_kelurahan' => $this->input->post('id_kelurahan'),
+    );
+    $this->m_default->update_data($id_pengajuan, 'pengajuan', $data);
+    echo "<script>alert('Update Berhasil')</script>";
+    echo '<meta http-equiv="refresh" content="0;url=' . base_url('admin/lihat-pengajuan/' . $id) . '">';
   }
   public function submitStatus()
   {
@@ -150,14 +169,14 @@ class Pengajuan extends CI_Controller
         // echo '<meta http-equiv="refresh" content="0;url=http://localhost/spaceroom/peminjaman/cetak_laporan_paket">';
       }
     }
-      $this->m_default->update_data($where, 'status_pengajuan', $data);
+    $this->m_default->update_data($where, 'status_pengajuan', $data);
     // $this->m_default->insert_data($data, 'status_pengajuan');
-      $this->session->set_flashdata('submit-success', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        Anda Berhasil Submit Status Pengajuan Wifi
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-        </div>');
-      redirect('admin/lihat-pengajuan/' . $this->input->post('id_pengajuan'));
+    $this->session->set_flashdata('submit-success', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+      Anda Berhasil Submit Status Pengajuan Wifi
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+      </div>');
+    redirect('admin/lihat-pengajuan/' . $this->input->post('id_pengajuan'));
   }
 }
