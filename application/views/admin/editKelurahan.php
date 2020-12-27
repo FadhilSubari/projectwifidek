@@ -50,7 +50,7 @@
               <form action="<?= base_url('admin/proses-edit-kelurahan') ?>" method="post">
                 <div class="form-group">
                   <label>Nama kelurahan</label>
-                  <input type="text" name="id_kelurahan" class="form-control" value="<?= $kelurahan->id_kelurahan ?>">
+                  <input type="text" name="id_kelurahan" class="form-control" value="<?= $kelurahan->id_kelurahan ?>" hidden>
                   <input type="text" name="kelurahan" class="form-control" value="<?= set_value('kelurahan', $kelurahan->nama_kelurahan) ?>">
                   <?= form_error('kelurahan') ?>
                 </div>

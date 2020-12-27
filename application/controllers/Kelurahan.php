@@ -39,6 +39,8 @@ class Kelurahan extends Ci_Controller
   }
   public function prosesEditKelurahan()
   {
+    $dimana = array('id_kelurahan' => $this->input->post('id_kelurahan'));
+    $data['kelurahan'] = $this->m_default->ambilData($dimana, 'kelurahan')->row();
     $this->form_validation->set_rules('kelurahan', 'kelurahan', 'required');
     if ($this->form_validation->run() != false) {
       $where = array('id_kelurahan' => $this->input->post('id_kelurahan'));
@@ -48,18 +50,18 @@ class Kelurahan extends Ci_Controller
       $this->m_default->update_data($where, 'kelurahan', $data);
       redirect('admin/data-kelurahan');
     } else {
-      $this->load->view('admin/editkelurahan');
+      $this->load->view('admin/editkelurahan', $data);
     }
   }
   public function dataUser()
   {
     $data['item'] = $this->db->query('SELECT * FROM user, kelurahan, kecamatan where user.id_kelurahan = kelurahan.id_kelurahan AND user.id_kecamatan = kecamatan.id_kecamatan')->result();
-    $this->load->view('admin/dataUser',$data);
+    $this->load->view('admin/dataUser', $data);
   }
   public function dataAdmin()
   {
     $data['item'] = $this->db->query('SELECT * FROM admin')->result();
-    $this->load->view('admin/dataAdmin',$data);
+    $this->load->view('admin/dataAdmin', $data);
   }
   public function tambahAdmin()
   {
@@ -71,8 +73,7 @@ class Kelurahan extends Ci_Controller
     $this->form_validation->set_rules('email', 'Email', 'required');
     $this->form_validation->set_rules('password', 'password', 'required');
     $this->form_validation->set_rules('no_telp', 'no_telp', 'required');
-    if ($this->form_validation->run() != false)
-    {
+    if ($this->form_validation->run() != false) {
       $data = array(
         'nama_admin' => $this->input->post('nama_admin'),
         'email' => $this->input->post('email'),
@@ -84,6 +85,5 @@ class Kelurahan extends Ci_Controller
       echo "<script>alert('Admin berhasil ditambah')</script>";
       echo '<meta http-equiv="refresh" content="0;url=' . base_url('admin/data-admin') . '">';
     }
-
   }
 }

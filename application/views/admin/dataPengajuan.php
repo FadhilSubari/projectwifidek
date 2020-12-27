@@ -43,8 +43,6 @@
 
           <!-- Page Heading -->
           <h1 class="h3 text-gray-800">Data Pengajuan</h1>
-          <a href="<?= base_url('admin/tambah-pengajuan') ?>" class="btn btn-primary my-3">Tambah pengajuan</a>
-
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">

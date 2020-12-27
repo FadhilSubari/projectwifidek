@@ -11,9 +11,9 @@ class Dashboard extends Ci_Controller
   }
   public function index()
   {
-        $data['kecamatan'] = $this->db->query('SELECT * FROM kategori_tempat')->result();
-        $dataa = $this->db->query('SELECT * FROM kategori_tempat')->result();
-    $this->load->view('admin/index',$data);
+    $data['kecamatan'] = $this->db->query('SELECT * FROM kategori_tempat')->result();
+    $dataa = $this->db->query('SELECT * FROM kategori_tempat')->result();
+    $this->load->view('admin/index', $data);
   }
   public function logout()
   {
@@ -51,6 +51,8 @@ class Dashboard extends Ci_Controller
   }
   public function prosesEditKecamatan()
   {
+    $dimana = array('id_kecamatan' => $this->input->post('id_kecamatan'));
+    $data['kecamatan'] = $this->m_default->ambilData($dimana, 'kecamatan')->row();
     $this->form_validation->set_rules('kecamatan', 'Kecamatan', 'required');
     if ($this->form_validation->run() != false) {
       $where = array('id_kecamatan' => $this->input->post('id_kecamatan'));
@@ -60,7 +62,7 @@ class Dashboard extends Ci_Controller
       $this->m_default->update_data($where, 'kecamatan', $data);
       redirect('admin/data-kecamatan');
     } else {
-      $this->load->view('admin/editKecamatan');
+      $this->load->view('admin/editKecamatan', $data);
     }
   }
 }

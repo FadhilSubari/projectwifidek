@@ -40,6 +40,8 @@ class Tempat extends CI_Controller
   }
   public function prosesEditTempat()
   {
+    $dimana = array('id_tempat' => $this->input->post('id_tempat'));
+    $data['tempat'] = $this->m_default->ambilData($dimana, 'kategori_tempat')->row();
     $this->form_validation->set_rules('tempat', 'tempat', 'required');
     if ($this->form_validation->run() != false) {
       $where = array('id_tempat' => $this->input->post('id_tempat'));
@@ -49,7 +51,7 @@ class Tempat extends CI_Controller
       $this->m_default->update_data($where, 'kategori_tempat', $data);
       redirect('admin/data-tempat');
     } else {
-      $this->load->view('admin/editTempat');
+      $this->load->view('admin/editTempat', $data);
     }
   }
 }
