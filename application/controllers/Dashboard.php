@@ -5,9 +5,13 @@ class Dashboard extends Ci_Controller
   function __construct()
   {
     parent::__construct();
-    if ($this->session->userdata('roles') != 'master' || $this->session->userdata('roles') != 'master') {
-      redirect('admin');
+    if (empty($this->session->userdata('roles'))) {
+      redirect(base_url('admin'));
     }
+    // if ($this->session->userdata('roles') == 'normal') {
+    // } else {
+    //   redirect('admin');
+    // }
   }
   public function index()
   {

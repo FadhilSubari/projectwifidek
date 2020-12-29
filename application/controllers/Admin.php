@@ -44,6 +44,6 @@ class Admin extends CI_Controller
         redirect('admin');
       }
     }
-    $this->load->view('admin');
+    $this->load->view('admin/login');
   }
 }
