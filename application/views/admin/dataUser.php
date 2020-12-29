@@ -71,7 +71,7 @@
                         <td><?= $value->alamat ?></td>
                         <td><?= $value->kode_pos ?></td>
                         <td><?= $value->no_telp ?></td>
-                        <td width="100px"><a href="<?= base_url('admin/lihat-pengajuan/' . $value->id_user) ?>" class="btn btn-success">Lihat</a></td>
+                        <td width="100px"><a href="<?= base_url('admin/lihat-user/' . $value->id_user) ?>" class="btn btn-success">Lihat</a></td>
                       </tr>
                     <?php } ?>
                   </tbody>

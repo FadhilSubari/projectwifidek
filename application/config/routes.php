@@ -99,6 +99,7 @@ $route['admin/edit-tempat/(:any)'] = 'tempat/editTempat/$1';
 $route['admin/proses-edit-tempat'] = 'tempat/prosesEditTempat';
 $route['admin/data-pengajuan'] = 'pengajuan';
 $route['admin/lihat-pengajuan/(:any)'] = 'pengajuan/lihat/$1';
+$route['admin/lihat-user/(:any)'] = 'pengajuan/lihatUser/$1';
 $route['admin/proses-update-pengajuan/(:any)'] = 'pengajuan/updatePengajuan/$1';
 $route['admin/status-pengajuan'] = 'pengajuan/submitStatus';
 //
