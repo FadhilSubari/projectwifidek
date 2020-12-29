@@ -83,7 +83,7 @@ class Pengajuan extends CI_Controller
 
     $statusData = $this->db->query("SELECT * FROM status_pengajuan where id_status = $getData")->row();
     $id_pengajuanData = $statusData->id_pengajuan;
-    $pengajuanData = $this->db->query("SELECT * from pengajuan where id_pengajuan = $id_pengajuanData")->row();
+    $pengajuanData = $this->db->query("SELECT * from pengajuan where id_pengajuan = '$id_pengajuanData'")->row();
     $id_userData = $pengajuanData->id_user;
     $userData = $this->db->query("SELECT * from user where id_user = '$id_userData'")->row();
     // $this->m_default->update_data($where, 'status_pengajuan', $data);
