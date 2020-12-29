@@ -7,7 +7,6 @@
       <div class="card shadow mb-4">
         <div class="card-header py-3">
           <h6 class="m-0 font-weight-bold text-primary">Pengajuan wifi dengan id "<?= $data_diri->id_user ?>"</h6>
-          Tanggal Pengajuan : <?= $data_diri->id_user ?>
           <a class="btn btn-primary btn-block" href="<?= base_url('admin/data-user') ?>">Kembali</a>
         </div>
         <div class="card-body">
