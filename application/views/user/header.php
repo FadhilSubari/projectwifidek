@@ -24,8 +24,7 @@
 </head>
 
 <script type="text/javascript">
-  function sebelum_login()
-  {
+  function sebelum_login() {
     return alert('Anda harus login terlebih dahulu');
   }
 </script>
@@ -33,7 +32,9 @@
 <body id="page-top">
   <!-- navbar  -->
   <nav class="navbar navbar-expand-lg navbar-light px-5 fixed-top nav-transisi bg-mobile">
-    <a class="navbar-brand" href="<?= base_url() ?>"><?= $this->session->userdata('nama'); ?></a>
+    <?php if ($this->this->userdata('id_user')) { ?>
+      <a class="navbar-brand" href="<?= base_url() ?>"><?= $this->session->userdata('nama'); ?></a>
+    <?php } ?>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -53,7 +54,7 @@
               <a class="dropdown-item font-weight-bold" href="<?= base_url('user/login') ?>" onclick="sebelum_login()">Data Pengajuan</a>
             <?php } else { ?>
               <a class="dropdown-item font-weight-bold" href="<?= base_url('user/daftar-wifi-publik') ?>">Ajukan Wifi Publik</a>
-              <a class="dropdown-item font-weight-bold" href="<?= base_url('user/data-pengajuan') ?>">Data Pengajuan</a> 
+              <a class="dropdown-item font-weight-bold" href="<?= base_url('user/data-pengajuan') ?>">Data Pengajuan</a>
 
             <?php } ?>
             <!-- <a class="dropdown-item font-weight-bold" href="#">Something else here</a> -->
@@ -62,7 +63,7 @@
 
         <li class="nav-item font-weight-bold">
           <a class="nav-link" href="<?= base_url('user/profile') ?>">Profile</a>
-        </li>        
+        </li>
         <li class="nav-item font-weight-bold">
           <a class="nav-link" href="<?= base_url('user/manual-book') ?>">Manual Book</a>
         </li>
