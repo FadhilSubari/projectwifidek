@@ -14,7 +14,7 @@ class U_pengajuan extends CI_Controller
     $idLogin = $this->session->userdata('id_user');
     $getData = $this->db->query("SELECT * FROM pengajuan, status_pengajuan WHERE pengajuan.id_pengajuan = status_pengajuan.id_pengajuan AND pengajuan.id_user = '$idLogin' AND status_pengajuan.status = 'Sukses Terpasang'")->num_rows();
 
-    if ($getData == 0) {
+    if ($getData == 0 or $this->session->userdata('id_user') == 'US001') {
       $data['kecamatan'] = $this->m_default->get_data('kecamatan')->result();
       $data['kelurahan'] = $this->m_default->get_data('kelurahan')->result();
       $data['tempat'] = $this->m_default->get_data('kategori_tempat')->result();

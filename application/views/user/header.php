@@ -32,7 +32,7 @@
 <body id="page-top">
   <!-- navbar  -->
   <nav class="navbar navbar-expand-lg navbar-light px-5 fixed-top nav-transisi bg-mobile">
-    <?php if ($this->this->userdata('id_user')) { ?>
+    <?php if ($this->session->userdata('id_user')) { ?>
       <a class="navbar-brand" href="<?= base_url() ?>"><?= $this->session->userdata('nama'); ?></a>
     <?php } ?>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
